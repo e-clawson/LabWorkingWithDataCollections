@@ -26,7 +26,7 @@ When code is outdated or inefficient, it often goes through a process called “
 For the first part of this assignment, revisit your code from ALAB 308.3.1, wherein you create a script that parsed CSVs. Now that you have knowledge of arrays and objects, how would you change your approach to this problem? Take a few minutes to examine and refactor the code before continuing.
 For reference, ALAB 308.3.1 is embedded below. The section on CSV parsing is “Part 3.”
 
-# part 3 - Feeling Loopy 
+# part 3 (of old lab) - Feeling Loopy 
 
 As a final task, solve the following practical problem regarding string processing.
 Context: A CSV file, or “Comma-Separated Values” file is traditionally used to store tabular data. You may be familiar with CSVs through past use of programs such as Microsoft Excel or Google Sheets. While each of these programs save their data in different formats to preserve style (e.g., font color or cell backgrounds), at their core, they are storing CSV data.
