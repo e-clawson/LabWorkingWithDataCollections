@@ -50,9 +50,25 @@ console.log(row)
 }
   console.log(newData)
 
+//part5
 
-
-
+  let newData2 = [ { id: 42, name: 'Bruce', occupation: 'Knight', age: 41 }, { id: 57, name: 'Bob', occupation: 'Fry Cook', age: 19 }, { id: 63, name: 'Blaine', occupation: 'Quiz Master', age: 58 }, { id: 98, name: 'Bill', occupation: 'Doctor’s Assistant', age: 26 } ]; 
+  // Ensure there's data to convert 
+  if (newData2.length > 0) { 
+    // Extract headers from the keys of the first object 
+    const headers = Object.keys(newData2[0]); 
+    // Create CSV header row 
+    let csvString = headers.join(',') + '\n'; 
+    // Create CSV data rows 
+    csvString += newData2.map(row => headers.map(field => { let value = row[field]''; 
+    // Ensure the value is wrapped in quotes if it contains a comma or newline 
+    if (value.includes(','), value.includes('\n') || value.includes('"')) { 
+        value = "${value.replace(/"/g, '""')}";
+        // Wrap in quotes and escape inner quotes 
+        } else { value = String(value); 
+        // Convert to string if no special characters 
+    } return value; }).join(',') ).join('\n'); 
+    // Output the CSV string console.log(csvString); }
 
 
 
