@@ -1,4 +1,4 @@
-// part 1 - refactoring part 3 from old lab
+// part 1 and 2
 let csv = `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26`;
 
         function feelingLoopy(file) {
@@ -12,7 +12,8 @@ let csv = `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Bl
             console.log(newArray) // prints the new array in the inspector
         }feelingLoopy(csv);
 
-        // part 2
+// part 3
+
         let cell = ""; //""
         let row = [];
         let data = [];
@@ -50,10 +51,8 @@ let csv = `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Bl
         }
           console.log(newData)
 
-    //part 3
+// part 4 
 
-
-    // part 4 
         //Using array methods, accomplish the following tasks, in order upon the result of Part 3:
         // Remove the last element from the sorted array.
         newData.splice(3)
@@ -79,49 +78,51 @@ let csv = `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Bl
         }
         console.log(avgAge(ages))
 
-//     // part5
+        const part3_input = [
+            ["ID", "Name", "Occupation", "Age"],
+            ["42", "Bruce", "Knight", "41"],
+            ["57", "Bob", "Fry Cook", "19"],
+            ["63", "Blaine", "Quiz Master", "58"],
+            ["98", "Bill", "Doctor’s Assistant", "26"],
+          ];
+          
+          const attrs = part3_input.shift();
 
-//     let newData2 = [
-//         {
-//             id: 42,
-//             name: 'Bruce',
-//             occupation: 'Knight',
-//             age: 41
-//         }, {
-//             id: 57,
-//             name: 'Bob',
-//             occupation: 'Fry Cook',
-//             age: 19
-//         }, {
-//             id: 63,
-//             name: 'Blaine',
-//             occupation: 'Quiz Master',
-//             age: 58
-//         }, {
-//             id: 98,
-//             name: 'Bill',
-//             occupation: 'Doctor’s Assistant',
-//             age: 26
-//         }
-//     ];
-//     // Ensure there's data to convert
-//     function fullCircle(newData2) {
-//     if (newData2.length > 0) { // Extract headers from the keys of the first object
-//         const headers = Object.keys(newData2[0]);
-//         // Create CSV header row
-//         let csvString = headers.join(',') + '\n';
-//         // Create CSV data rows
-//         csvString += newData2.map(row => headers.map(field => {
-//             let value = row[field];
-//             // Ensure the value is wrapped in quotes if it contains a comma or newline
-//             if (value.includes(','), value.includes('\n') || value.includes('"')) {
-//                 value = $value.replace(/"/g, '""')
-//             }
-//         }))
-//         // Wrap in quotes and escape inner quotes
-//     } else {
-//         value = String(value);
-//         // Convert to string if no special characters
-//     }
-//     return value.join(',').join('\n');// Output the CSV string console.log(csvString);}
-// }
+// part
+const results = part3_input.map((element) => {
+    const obj = {};
+    attrs.forEach((attr, i) => {
+      obj[attr.toLowerCase()] = element[i];
+    });
+    return obj;
+  });
+  
+  console.log(results)
+
+let newData2 = results;
+
+// Ensure there's data to convert
+if (newData2.length > 0) {
+// Extract headers from the keys of the first object
+const headers = Object.keys(newData2[0]);
+
+// Create CSV header row
+let csvString = headers.join(',') + '\n';
+
+// Create CSV data rows
+csvString += newData2.map(row =>
+    headers.map(field => {
+    let value = row[field];
+    // Ensure the value is wrapped in quotes if it contains a comma or newline
+    if (value.includes(',') || value.includes('\n') || value.includes('"')) {
+        value = value.replace(/"/g, '""'); // Wrap in quotes and escape inner quotes
+    } else {
+        value = String(value); // Convert to string if no special characters
+    }
+    return value;
+    }).join(',')
+).join('\n');
+
+// Output the CSV string
+console.log(csvString);
+}
