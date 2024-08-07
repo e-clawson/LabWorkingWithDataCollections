@@ -52,15 +52,33 @@ let csv = `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Bl
 
     //part 3
 
-    //Using array methods, accomplish the following tasks, in order upon the result of Part 3:
+
+    // part 4 
+        //Using array methods, accomplish the following tasks, in order upon the result of Part 3:
         // Remove the last element from the sorted array.
         newData.splice(3)
+
         // Insert the following object at index 1:{ id: "48", name: "Barry", occupation: "Runner", age: "25" }
         newData.unshift({id: "48", name: "Barry", occupation: "Runner", age: "25"})
+
         // Add the following object to the end of the array: { id: "7", name: "Bilbo", occupation: "None", age: "111" }
         newData.push({id: "7", name: "Bilbo", occupation: "None", age: "111"})
 
-        // part 4 
+        // Finally, use the values of each object within the array and the array’s 
+        // length property to calculate the average age of the group. 
+        // This calculation should be accomplished using a loop.
+      
+        let ages = newData.map(a => Number(a.age)); //need to turn these into numbers not strings
+
+        function avgAge(ages) {
+            let sum = 0;
+            for (let i = 0; i < ages.length; i++) {
+                sum += ages[i];
+            }
+            return ((sum) / (ages.length));
+        }
+        console.log(avgAge(ages))
+
 //     // part5
 
 //     let newData2 = [
