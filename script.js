@@ -78,17 +78,19 @@ let csv = `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Bl
         }
         console.log(avgAge(ages))
 
-        const part3_input = [
-            ["ID", "Name", "Occupation", "Age"],
-            ["42", "Bruce", "Knight", "41"],
-            ["57", "Bob", "Fry Cook", "19"],
-            ["63", "Blaine", "Quiz Master", "58"],
-            ["98", "Bill", "Doctor’s Assistant", "26"],
-          ];
-          
-          const attrs = part3_input.shift();
 
-// part
+// part 5
+
+const part3_input = [
+    ["ID", "Name", "Occupation", "Age"],
+    ["42", "Bruce", "Knight", "41"],
+    ["57", "Bob", "Fry Cook", "19"],
+    ["63", "Blaine", "Quiz Master", "58"],
+    ["98", "Bill", "Doctor’s Assistant", "26"],
+  ];
+  
+const attrs = part3_input.shift();
+
 const results = part3_input.map((element) => {
     const obj = {};
     attrs.forEach((attr, i) => {
@@ -101,28 +103,21 @@ const results = part3_input.map((element) => {
 
 let newData2 = results;
 
-// Ensure there's data to convert
 if (newData2.length > 0) {
-// Extract headers from the keys of the first object
 const headers = Object.keys(newData2[0]);
-
-// Create CSV header row
 let csvString = headers.join(',') + '\n';
 
-// Create CSV data rows
 csvString += newData2.map(row =>
     headers.map(field => {
     let value = row[field];
-    // Ensure the value is wrapped in quotes if it contains a comma or newline
     if (value.includes(',') || value.includes('\n') || value.includes('"')) {
-        value = value.replace(/"/g, '""'); // Wrap in quotes and escape inner quotes
+        value = value.replace(/"/g, '""'); 
     } else {
-        value = String(value); // Convert to string if no special characters
+        value = String(value);
     }
     return value;
     }).join(',')
 ).join('\n');
 
-// Output the CSV string
 console.log(csvString);
 }
